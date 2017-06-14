@@ -102,7 +102,7 @@ class ezxpdfpreview
         //do nothing
     }
 
-    function previewGenerate( $file, $args )
+    static function previewGenerate( $file, $args )
     {
         extract( $args );
         
