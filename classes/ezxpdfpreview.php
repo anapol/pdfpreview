@@ -108,7 +108,7 @@ class ezxpdfpreview
         
         $pdffile->fetch(true);
         $cmd = "convert " . eZSys::escapeShellArgument( $pdf_file_path . "[" . $page . "]" ) . " " . " -alpha remove -resize " . eZSys::escapeShellArgument(  $width . "x" . $height ) . " " . eZSys::escapeShellArgument( $cacheImageFilePath );
-        $out = shell_exec( $cmd );
+        $out = shell_exec( $cmd." 2>&1; echo $?" );
         $fileHandler = eZClusterFileHandler::instance();
         $fileHandler->fileStore( $cacheImageFilePath, 'pdfpreview', false );
         eZDebug::writeDebug( $cmd, "pdfpreview" );
